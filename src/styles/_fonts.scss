@@ -1,0 +1,19 @@
+@font-face {
+  font-family: berry;
+  font-weight: 100 700;
+  src: url('../assets/fonts/berry.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: viktoria;
+  font-weight: 100 700;
+  src: url('../assets/fonts/viktoria.ttf') format('ttf');
+}
+
+.viktoria {
+  font-family: viktoria;
+}
+
+.berry {
+  font-family: berry;
+}

@@ -1,0 +1,24 @@
+.left-panel {
+  width: 120px;
+  flex-direction: column;
+
+  & .link {
+    background: var(--color-gray-50);
+
+    & .icon {
+      color: var(--color-gray-700)
+    }
+  }
+
+  & .logo {
+    width: 100%;
+
+    &.crown {
+      height: 80px;
+    }
+
+    & img {
+      width: 100px;
+    }
+  }
+}
