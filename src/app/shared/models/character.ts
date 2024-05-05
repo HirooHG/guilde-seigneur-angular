@@ -1,9 +1,10 @@
 import { Caste } from './caste';
+import { Guild } from './guild';
 import { Image } from './image';
 import { Kind } from './kind';
 
 export interface Character {
-  id: string;
+  _id: string;
   name: string;
   surname: string;
   knowledge: string;
@@ -13,6 +14,7 @@ export interface Character {
   caste: Caste;
   image: Image;
   kind: Kind;
+  guild: Guild;
   castle: CharacterBuilding;
   equipments: CharacterEquipment[];
   artifacts: CharacterArtifact[];

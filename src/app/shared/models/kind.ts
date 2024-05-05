@@ -1,7 +1,7 @@
 export type Color = 'black' | 'orange';
 
 export interface Kind {
-  id: string;
+  _id: string;
   name: string;
   color: Color;
 }

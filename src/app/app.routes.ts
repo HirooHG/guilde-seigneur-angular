@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
-import { MainLayoutComponent } from './shared/components/main-layout/main-layout.component';
+import { HomeComponent } from './components/home/home.component';
 
 export const routes: Routes = [
   {
@@ -10,12 +10,12 @@ export const routes: Routes = [
   },
   {
     path: 'home',
-    component: MainLayoutComponent,
+    component: HomeComponent,
     pathMatch: 'full',
   },
   {
     path: '**',
-    pathMatch: 'full',
     component: PageNotFoundComponent,
+    pathMatch: 'full',
   },
 ];

@@ -1,7 +1,9 @@
 <div class="flex">
   <app-left-panel></app-left-panel>
-  <div class="w-full">
+  <div class="layout-grid flex-1">
     <app-header></app-header>
-    <router-outlet></router-outlet>
+    <div class="placeholder p-2 overflow-auto">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>

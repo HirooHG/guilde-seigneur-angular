@@ -1,0 +1,23 @@
+.image {
+  border-radius: 10%;
+  box-shadow: 2px 2px 4px black;
+}
+
+.building {
+  width: 300px;
+}
+
+.character {
+  width: 100px;
+}
+
+.caste-title {
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.caste-item {
+  border: 2px solid var(--color-orange);
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}

@@ -1,0 +1,22 @@
+<div class="home h-full">
+  @if (loadingState.loading()) {
+    <app-loading />
+  } @else if (loadingState.error()) {
+    <app-error />
+  } @else {
+    <div class="p-4">
+      <div class="title berry mt-4 text-2xl flex justify-content-center">
+        Les Guildes
+      </div>
+      @if (guilds() !== null) {
+        <mat-tab-group>
+          @for (item of guilds(); track item._id) {
+            <mat-tab [label]="item.name">
+              <app-guild-caste-item [guild]="item" />
+            </mat-tab>
+          }
+        </mat-tab-group>
+      }
+    </div>
+  }
+</div>
