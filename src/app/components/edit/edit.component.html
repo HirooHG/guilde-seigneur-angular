@@ -1,0 +1,17 @@
+<div class="placeholder-edit h-full flex flex-column w-full">
+  <mat-tab-group
+    class="w-full h-full flex flex-column gap-4 align-items-center"
+    (selectedIndexChange)="resetForm()"
+  >
+    @for (editType of tabs; track editType) {
+      <mat-tab [label]="editType">
+        <div class="flex align-items-center">
+          <app-form-item
+            [formTypes]="getFormTypes(editType)"
+            [editType]="editType"
+          />
+        </div>
+      </mat-tab>
+    }
+  </mat-tab-group>
+</div>

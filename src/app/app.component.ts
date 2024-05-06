@@ -7,6 +7,9 @@ import { CastesService } from './core/services/castes.service';
 import { AnimalsService } from './core/services/animals.service';
 import { BuildingsService } from './core/services/buildings.service';
 import { CharactersService } from './core/services/characters.service';
+import { ArtifactsService } from './core/services/artifacts.service';
+import { EquipmentsService } from './core/services/equipments.service';
+import { KindService } from './core/services/kind.service';
 
 @Component({
   selector: 'app-root',
@@ -22,6 +25,9 @@ export class AppComponent {
     private animalService: AnimalsService,
     private buildingService: BuildingsService,
     private characterService: CharactersService,
+    private artifactService: ArtifactsService,
+    private equipmentService: EquipmentsService,
+    private kindService: KindService,
   ) {
     effect(() => {
       if (this.checkLists()) {
@@ -36,6 +42,9 @@ export class AppComponent {
     this.buildingService.fetchBuildings();
     this.animalService.fetchAnimal();
     this.characterService.fetchCharacters();
+    this.equipmentService.fetchEquipments();
+    this.artifactService.fetchArtifacts();
+    this.kindService.fetchKinds();
   }
 
   private checkLists(): boolean {
@@ -43,7 +52,10 @@ export class AppComponent {
       this.guildService.guilds() !== null &&
       this.casteService.castes() !== null &&
       this.buildingService.buildings() !== null &&
-      this.characterService.characters() !== null
+      this.characterService.characters() !== null &&
+      this.equipmentService.equipments() !== null &&
+      this.artifactService.artifacts() !== null &&
+      this.kindService.kinds() !== null
     );
   }
 }

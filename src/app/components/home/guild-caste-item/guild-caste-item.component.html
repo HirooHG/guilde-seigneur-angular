@@ -13,7 +13,7 @@
           @for (building of buildings() ?? []; track building._id) {
             <img
               class="image building"
-              [src]="getImagePath(building.image.content)"
+              [src]="convertImageService.getImagePath(building.image.content)"
             />
             <div class="berry flex justify-content-center text-xl">
               {{ building.name }}
@@ -27,7 +27,7 @@
           @for (character of characters() ?? []; track character._id) {
             <img
               class="image character"
-              [src]="getImagePath(character.image.content)"
+              [src]="convertImageService.getImagePath(character.image.content)"
             />
             <div class="berry flex justify-content-center text-xs">
               {{ character.name }}
@@ -40,7 +40,7 @@
           @for (animal of animals() ?? []; track animal._id) {
             <img
               class="image character"
-              [src]="getImagePath(animal.image.content)"
+              [src]="convertImageService.getImagePath(animal.image.content)"
             />
             <div class="berry flex justify-content-center text-xs">
               {{ animal.name }}

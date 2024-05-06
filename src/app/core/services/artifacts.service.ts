@@ -1,9 +1,21 @@
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Injectable, signal } from '@angular/core';
+import { Artifact } from '../../shared/models/artifact';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ArtifactsService {
+  artifacts = signal<Artifact[] | null>(null);
+  constructor(private http: HttpClient) {}
 
-  constructor() { }
+  fetchArtifacts(): void {
+    this.http
+      .get<Artifact[]>('http://localhost:3000/guilde-seigneur/artifact')
+      .subscribe({
+        next: (value: Artifact[]) => {
+          this.artifacts.set(value);
+        },
+      });
+  }
 }

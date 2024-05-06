@@ -1,12 +1,16 @@
 <div
   class="left-panel h-screen flex align-items-center justify-content-between"
 >
-  <div class="logo crown flex justify-content-center align-items-center">
+  <a
+    routerLink="/home"
+    class="logo crown flex justify-content-center align-items-center"
+  >
     <img src="../../../../assets/couronne.png" />
-  </div>
+  </a>
 
   <div class="links flex flex-column gap-4 align-items-center">
     <button
+      routerLink="/characters"
       mat-icon-button
       color="primary"
       matTooltip="characters"
@@ -14,13 +18,26 @@
     >
       <mat-icon class="icon">person</mat-icon>
     </button>
-    <button mat-icon-button color="primary" matTooltip="buildings" class="link">
+    <button
+      routerLink="/castles"
+      mat-icon-button
+      color="primary"
+      matTooltip="buildings"
+      class="link"
+    >
       <mat-icon class="icon">castle</mat-icon>
     </button>
-    <button mat-icon-button color="primary" matTooltip="animals" class="link">
+    <button
+      routerLink="/animals"
+      mat-icon-button
+      color="primary"
+      matTooltip="animals"
+      class="link"
+    >
       <mat-icon class="icon">pets</mat-icon>
     </button>
     <button
+      routerLink="/equipments"
       mat-icon-button
       color="primary"
       matTooltip="equipments"
@@ -28,8 +45,23 @@
     >
       <mat-icon class="icon">checkroom</mat-icon>
     </button>
-    <button mat-icon-button color="primary" matTooltip="artifacts" class="link">
+    <button
+      routerLink="/artifacts"
+      mat-icon-button
+      color="primary"
+      matTooltip="artifacts"
+      class="link"
+    >
       <mat-icon class="icon">diamond</mat-icon>
+    </button>
+    <button
+      routerLink="/edit"
+      mat-icon-button
+      color="primary"
+      matTooltip="edit"
+      class="link"
+    >
+      <mat-icon class="icon">edit</mat-icon>
     </button>
   </div>
 

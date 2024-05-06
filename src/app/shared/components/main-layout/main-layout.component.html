@@ -3,7 +3,13 @@
   <div class="layout-grid flex-1">
     <app-header></app-header>
     <div class="placeholder p-2 overflow-auto">
-      <router-outlet></router-outlet>
+      @if (loadingState.loading()) {
+        <app-loading />
+      } @else if (loadingState.error()) {
+        <app-error />
+      } @else {
+        <router-outlet />
+      }
     </div>
   </div>
 </div>

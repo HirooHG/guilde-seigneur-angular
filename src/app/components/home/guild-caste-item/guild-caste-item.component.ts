@@ -4,7 +4,7 @@ import { CastesService } from '../../../core/services/castes.service';
 import { CharactersService } from '../../../core/services/characters.service';
 import { BuildingsService } from '../../../core/services/buildings.service';
 import { AnimalsService } from '../../../core/services/animals.service';
-import { DomSanitizer } from '@angular/platform-browser';
+import { ConvertImageService } from '../../../shared/utils/convert-image.service';
 
 @Component({
   selector: 'app-guild-caste-item',
@@ -14,7 +14,7 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrl: './guild-caste-item.component.scss',
 })
 export class GuildCasteItemComponent {
-  @Input({ required: true }) guild: Guild | undefined;
+  @Input({ required: true }) guild!: Guild;
 
   // signals
   castesSignal = this.casteService.castes;
@@ -45,14 +45,6 @@ export class GuildCasteItemComponent {
     private characterService: CharactersService,
     private buildingService: BuildingsService,
     private animalService: AnimalsService,
-    private _sanitizer: DomSanitizer,
+    protected readonly convertImageService: ConvertImageService,
   ) {}
-
-  // TODO: refactor for performance
-  // set it in constructor
-  protected getImagePath(imageBase64: string) {
-    return this._sanitizer.bypassSecurityTrustUrl(
-      'data:image/png;base64,' + imageBase64,
-    );
-  }
 }

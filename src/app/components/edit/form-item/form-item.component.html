@@ -1,0 +1,116 @@
+<div class="form flex flex-column p-5">
+  <div class="flex gap-8 h-full">
+    <div class="flex flex-column gap-2 flex-wrap">
+      <!-- raw fields -->
+      <mat-form-field appearance="outline">
+        <input
+          matInput
+          id="name"
+          type="text"
+          name="name"
+          placeholder="Name"
+          (blur)="onChangeName()"
+          [(ngModel)]="name"
+        />
+      </mat-form-field>
+      <mat-form-field *ngIf="isInForm(FormType.Rate)" appearance="outline">
+        <mat-label>rate</mat-label>
+        <input matInput [(ngModel)]="rate" min="0" max="5" type="number" />
+      </mat-form-field>
+      <mat-form-field *ngIf="isInForm(FormType.Strength)" appearance="outline">
+        <mat-label>strength</mat-label>
+        <input matInput [(ngModel)]="strength" min="0" type="number" />
+      </mat-form-field>
+    </div>
+    <div class="selectable-fields flex flex-column flex-wrap">
+      <!-- selectable fields -->
+      <mat-form-field
+        *ngIf="isInForm(FormType.Guild)"
+        class="ml-3"
+        appearance="outline"
+      >
+        <mat-label>Guild</mat-label>
+        <mat-select (valueChange)="onChangeGuild($event)">
+          @for (guild of guildService.guilds() ?? []; track guild._id) {
+            <mat-option [value]="guild">{{ guild.name }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field
+        *ngIf="isInForm(FormType.Caste)"
+        class="ml-3"
+        appearance="outline"
+      >
+        <mat-label>Caste</mat-label>
+        <mat-select (valueChange)="onChangeCaste($event)">
+          @for (caste of casteService.castes() ?? []; track caste._id) {
+            <mat-option [value]="caste">{{ caste.name }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field
+        *ngIf="isInForm(FormType.Kind)"
+        class="ml-3"
+        appearance="outline"
+      >
+        <mat-label>Kind</mat-label>
+        <mat-select (valueChange)="onChangeKind($event)">
+          @for (kind of kindService.kinds() ?? []; track kind._id) {
+            <mat-option [value]="kind">{{ kind.name }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field
+        *ngIf="isInForm(FormType.Castle)"
+        class="ml-3"
+        appearance="outline"
+      >
+        <mat-label>Building</mat-label>
+        <mat-select (valueChange)="onChangeBuilding($event)">
+          @for (
+            building of buildingService.buildings() ?? [];
+            track building._id
+          ) {
+            <mat-option [value]="building">{{ building.name }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field
+        *ngIf="isInForm(FormType.Artifact)"
+        class="ml-3"
+        appearance="outline"
+      >
+        <mat-label>Artifact</mat-label>
+        <mat-select multiple (valueChange)="onChangeArtifacts($event)">
+          @for (
+            artifact of artifactService.artifacts() ?? [];
+            track artifact._id
+          ) {
+            <mat-option [value]="artifact">{{ artifact.name }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field
+        *ngIf="isInForm(FormType.Equipment)"
+        class="ml-3"
+        appearance="outline"
+      >
+        <mat-label>Equipment</mat-label>
+        <mat-select (valueChange)="onChangeEquipments($event)" multiple>
+          @for (
+            equipment of equipmentService.equipments() ?? [];
+            track equipment._id
+          ) {
+            <mat-option [value]="equipment">{{ equipment.name }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="flex justify-content-between h-full">
+    <button mat-flat-button (click)="onValid()" color="primary">valid</button>
+    <div *ngIf="isInForm(FormType.Image)">
+      <input accept="image/png" type="file" (change)="selectFiles($event)" />
+    </div>
+  </div>
+</div>
